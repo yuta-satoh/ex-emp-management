@@ -1,8 +1,8 @@
 package com.example.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -118,14 +118,8 @@ public class EmployeeRepository {
      * @param employee
      * @param id
      */
-    public void update(Employee employee, Integer id) {
-        MapSqlParameterSource params = new MapSqlParameterSource().addValue("id", id)
-                .addValue("name", employee.getName()).addValue("image", employee.getImage())
-                .addValue("gender", employee.getGender()).addValue("hireDate", employee.getHireDate())
-                .addValue("mailAddress", employee.getMailAddress()).addValue("zipCode", employee.getZipCode())
-                .addValue("address", employee.getAddress()).addValue("telephone", employee.getTelephone())
-                .addValue("salary", employee.getSalary()).addValue("characteristics", employee.getCharacteristics())
-                .addValue("dependentsCount", employee.getDependentsCount());
+    public void update(Employee employee) {
+        SqlParameterSource params = new BeanPropertySqlParameterSource(employee);
         template.update(EMPLOYEE_UPDATE_SQL, params);
     }
 }

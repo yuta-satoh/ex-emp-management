@@ -36,4 +36,8 @@ public class EmployeeService {
 		return employee;
 	}
 
+	public void update(Employee employee){
+		repository.update(employee);
+	}
+
 }

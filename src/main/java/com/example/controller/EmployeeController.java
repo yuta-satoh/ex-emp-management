@@ -12,6 +12,9 @@ import com.example.service.EmployeeService;
 
 import java.util.List;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 
@@ -40,5 +43,14 @@ public class EmployeeController {
 		return "employee/detail";
 	}
 	
+	@PostMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		Employee employee = service.showDetail(Integer.parseInt(form.getId()));
+		employee.setDependentsCount(Integer.parseInt(form.getDependentsCount()));
+		service.update(employee);
+		//TODO: process POST request
+		
+		return "redirect:/employee/showList";
+	}
 	
 }
