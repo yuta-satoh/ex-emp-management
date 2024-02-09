@@ -1,5 +1,7 @@
 package com.example.domain;
 
+import java.util.Date;
+
 public class Employee {
     /** id */
     private Integer id;
@@ -10,7 +12,7 @@ public class Employee {
     /** 性別 */
     private String gender;
     /** 入社日 */
-    private String hireDate;
+    private Date hireDate;
     /** メールアドレス */
     private String mailAddress;
     /** 郵便番号 */
@@ -49,10 +51,10 @@ public class Employee {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    public String getHireDate() {
+    public Date getHireDate() {
         return hireDate;
     }
-    public void setHireDate(String hireDate) {
+    public void setHireDate(Date hireDate) {
         this.hireDate = hireDate;
     }
     public String getMailAddress() {

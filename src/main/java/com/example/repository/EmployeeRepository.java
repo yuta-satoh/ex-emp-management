@@ -78,7 +78,7 @@ public class EmployeeRepository {
         employee.setName(rs.getString("name"));
         employee.setImage(rs.getString("image"));
         employee.setGender(rs.getString("gender"));
-        employee.setHireDate(rs.getString("hire_date"));
+        employee.setHireDate(rs.getDate("hire_date"));
         employee.setMailAddress(rs.getString("mail_address"));
         employee.setZipCode(rs.getString("zip_code"));
         employee.setAddress(rs.getString("address"));
