@@ -19,10 +19,22 @@ public class AdministratorService {
 
     /**
      * 管理者登録
+     * 
      * @param name, mail_address, password
      */
-    public void insert(Administrator administrator){
+    public void insert(Administrator administrator) {
         repository.insert(administrator);
     }
-    
+
+    /**
+     * ログイン処理
+     * 
+     * @param mailAddress
+     * @param password
+     * @return 管理者情報
+     */
+    public Administrator login(String mailAddress, String password) {
+        Administrator administrator = repository.findByMailAddressAndPassword(mailAddress, password);
+        return administrator;
+    }
 }
