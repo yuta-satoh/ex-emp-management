@@ -25,5 +25,15 @@ public class EmployeeService {
 		return employees;
 	}
 
-	
+	/**
+	 * 従業員1件取得
+	 * 
+	 * @param id
+	 * @return 従業員データ1件
+	 */
+	public Employee showDetail(Integer id) {
+		Employee employee = repository.load(id);
+		return employee;
+	}
+
 }
